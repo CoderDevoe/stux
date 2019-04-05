@@ -1,4 +1,3 @@
-node_modules
+stux/node_modules
 
-package-lock.json
-./package-lock.json
+stux/package-lock.json
