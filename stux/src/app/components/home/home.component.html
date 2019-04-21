@@ -1,0 +1,49 @@
+<div class="container-fluid wrap">
+  <!--   <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+
+  </div> -->
+  <div class="floating-chat enter" #chat [ngClass]="{'expand': showChatWindow}" (click)="(canShowChatButton || showChatbutton) && openChat($event)">
+    <i class="fa fa-comments" *ngIf="showChatButton" aria-hidden="true"></i>
+    <!--     <a class="btn-floating btn-large red" (click)="openChat()">
+      <i class="large material-icons">mode_edit</i>
+    </a> -->
+    <div class="chat" [ngClass]="{'enter': showChatWindow}" *ngIf="showChatWindow">
+      <div class="header">
+        <span class="title">
+          what's on your mind?
+        </span>
+        <button (click)="closeChat($event)">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <ul class="messages">
+        <li class="other">asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas</li>
+        <li class="other">Are we dogs??? 🐶</li>
+        <li class="self">no... we're human</li>
+        <li class="other">are you sure???</li>
+        <li class="self">yes.... -___-</li>
+        <li class="other">if we're not dogs.... we might be monkeys 🐵</li>
+        <li class="self">i hate you</li>
+        <li class="other">don't be so negative! here's a banana 🍌</li>
+        <li class="self">......... -___-</li>
+        <li class="self-options">
+          <div>
+            <ul>
+              <li><a href="#">Are you fucking high?</a></li>
+              <li><a href="#">Why don't you just say it?</a></li>
+              <li><a href="#">What's the meaning of life?</a></li>
+              <li><a href="#">Am I your dad?</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <div class="footer">
+        <div class="text-box" contenteditable="true" disabled="true"></div>
+        <button id="sendMessage">send</button>
+      </div>
+    </div>
+  </div>
+</div>

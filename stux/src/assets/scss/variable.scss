@@ -1,0 +1,15 @@
+@import './palette.scss';
+
+$defaultColor: palette('primary', 50);
+$greyColor: palette('secondary', 50);
+$neonBlueColor: palette('primary', 100);
+$hardBlueColor: palette('secondary', 100);
+$violetColor: palette('secondary', 200);
+$darkBlueColor: palette('secondary', 300);
+$blackColor: #000000;
+$whiteColor: #FFFFFF;
+$neonLightBlue: palette('secondary', 400);
+$neonYellow: palette('secondary', 500);
+$defaultFontSize: 17px;
+$transition: 0.5s all ease-in-out 0s;
+$boxshadow: 0px 0px 120px 15px rgba(0, 0, 0, 0.2) inset;

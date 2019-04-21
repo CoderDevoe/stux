@@ -1,0 +1,22 @@
+$color-key:'base' !default;
+$colors:('primary':(50: #FFFFFF, 100: #3500D3, 200: #1a1a1a, 500:#fff),
+'secondary':(50: #d5ddde, 100: #240090, 200: #190061, 300:#0C0032, 400: #00FECA, 500: #FDF200));
+
+@function palette($name: 'primary',
+$variant: $color-key,
+$opacity: 1) {
+  $color: null;
+  $color-spectrum: map-get($colors, $name);
+
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  $alpha: if(type-of($opacity)=='number', $opacity, map-get($color-opacity, $opacity));
+
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
+  @return $color;
+}

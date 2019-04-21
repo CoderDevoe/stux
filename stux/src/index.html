@@ -1,14 +1,81 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Stux</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="copyright" content="&copy; 2019 DLSB" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
 </head>
+
 <body>
   <app-root></app-root>
+<!-- <css-doodle>
+  :doodle {
+  @grid: 45x1 / 40vmin;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  }
+  :container {
+  transform: translate(50%, 33vmin)
+  }
+  :after, :before {
+  content: '';
+  @place-cell: center;
+  @size: 100%;
+  background: radial-gradient(
+  @p(#FFFDE1, #FB3569) @r(70%),
+  transparent 0
+  )
+  @pn(30% 50%, 70% 50%, 50% 60%) /
+  @r(.1vmin, 5vmin) @lr()
+  no-repeat;
+  }
+  @place-cell: centerr;
+  @size: 100%;
+  will-change: transform;
+  animation: r 4s linear infinite;
+  animation-delay: calc(-4s / @size() * @i());
+  --translate: translateY(calc(-66vmin / @size() * @i()));
+  @keyframes r {
+  from { transform: var(--translate) rotate(0) }
+  to { transform: var(--translate) rotateZ(-1turn) }
+  }
+</css-doodle>
+ -->
+  <css-doodle>
+    :doodle {
+    @grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+    }
+    @size: 100% 100%;
+    position: absolute;
+    background: @m(100, (
+    linear-gradient(transparent, @p(
+    #FFFDE1@repeat(2, @p([0-9a-f])),
+    #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+    @r(0%, 100%) @r(0%, 100%) /
+    @r(1px) @r(23vmin)
+    no-repeat
+    ));
+    will-change: transform;
+    animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+    @keyframes f {
+    from { transform: translateY(-100%) }
+    to { transform: translateY(100%) }
+    }
+  </css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>
