@@ -5,7 +5,7 @@
     </a>
 
   </div> -->
-  <div class="floating-chat enter" #chat [ngClass]="{'expand': showChatWindow}" (click)="(canShowChatButton || showChatbutton) && openChat($event)">
+  <div class="floating-chat enter" #chat [ngClass]="{'expand': showChatWindow, 'chatButAnim': showChatButton}" (click)="(canShowChatButton || showChatbutton) && openChat($event)">
     <i class="fa fa-comments" *ngIf="showChatButton" aria-hidden="true"></i>
     <!--     <a class="btn-floating btn-large red" (click)="openChat()">
       <i class="large material-icons">mode_edit</i>
@@ -13,14 +13,14 @@
     <div class="chat" [ngClass]="{'enter': showChatWindow}" *ngIf="showChatWindow">
       <div class="header">
         <span class="title">
-          what's on your mind?
+          Do you need help?
         </span>
         <button (click)="closeChat($event)">
           <i class="fa fa-times" aria-hidden="true"></i>
         </button>
       </div>
-      <ul class="messages">
-        <li class="other">asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas</li>
+      <ul class="messages" #list>
+        <!--         <li class="other">asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas</li>
         <li class="other">Are we dogs??? 🐶</li>
         <li class="self">no... we're human</li>
         <li class="other">are you sure???</li>
@@ -39,11 +39,29 @@
             </ul>
           </div>
         </li>
+ -->
+        <li class="other" [ngClass]="{'self': message.flag === 'received', 'other': message.flag === 'sent'}" *ngFor="let message of messages">{{message.message[0].message
+          }}
+          <div>
+            <img *ngIf="message.message[0].imageURL" [src]="message.message[0].imageURL">
+            <ul>
+              <li tabindex="1" *ngFor="let button of message.message[0].buttons" (click)="sendMessageButton($event)"><a href="#">{{button.text}}</a></li>
+            </ul>
+          </div>
+        </li>
       </ul>
       <div class="footer">
-        <div class="text-box" contenteditable="true" disabled="true"></div>
-        <button id="sendMessage">send</button>
+        <form [formGroup]="chatForm" class="form">
+          <input class="text-box" type="text" name="inputText" autocomplete="off" formControlName="inputText">
+          <button id="sendMessage" (click)="sendMessage()">send</button>
+        </form>
       </div>
     </div>
+  </div>
+  <div class="content">
+    <article>
+      <img src="../../../assets/img/kuwall.jpg">
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </article>
   </div>
 </div>

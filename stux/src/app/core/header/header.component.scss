@@ -16,6 +16,25 @@
   text-align: center;
   margin-top: 10px;
   color: #FFFFFF;
+
+  img {
+    height: 50px;
+  }
+
+  h2 {
+    z-index: 997;
+    cursor: pointer;
+    margin: 0;
+    font-size: 2.1em;
+    padding: 10px;
+    animation: dubstep 0.8572 2 ease;
+    -webkit-animation: dubstep 0.8572 2 ease;
+
+    &:hover {
+      animation: dubstep 1.2858s infinite ease;
+      -webkit-animation: dubstep 1.2858s infinite ease;
+    }
+  }
 }
 
 .buttons {
@@ -24,10 +43,104 @@
   justify-content: space-evenly;
   align-items: center;
   // text-align: center;
-
+  margin-top: 10px;
+  z-index: 997;
 }
+
 
 .buttons a {
   color: #FFFFFF;
   text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.hover_effect {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  display: block;
+  width: 100%;
+  padding: 1px;
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  color: #2C3E50;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  // font-size: 5em;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.hover_effect:after {
+  content: "";
+  height: 2px;
+  left: 0;
+  width: 1px;
+  position: absolute;
+  -webkit-transition: width 1s ease, background-color 1s ease;
+  -moz-transition: width 1s ease, background-color 1s ease;
+  ;
+  -ms-transition: width 1s ease, background-color 1s ease;
+  ;
+  -o-transition: width 1s ease, background-color 1s ease;
+  ;
+  transition: width 1s ease, background-color 1s ease;
+  ;
+  right: 0;
+  margin: 0 auto;
+}
+
+.hover_effect:hover {
+  color: #fff;
+  -webkit-transition: color 1s ease;
+  -moz-transition: color 1s ease;
+  -ms-transition: color 1s ease;
+  -o-transition: color 1s ease;
+  transition: color 1s ease;
+  cursor: pointer;
+}
+
+.hover_effect:hover:after,
+.hover_effect:focus:after {
+  width: 100%;
+  background-color: #fff;
+}
+
+@keyframes dubstep {
+  0% {
+    text-shadow: 0 0 0 #fff;
+  }
+
+  40% {
+    text-shadow: 3px 0 0 #ffaa22;
+  }
+
+  43% {
+    text-shadow: 3px 0 0 #ffaa22,
+      15px 0 0 #aa22ff,
+      -7px 0 0 #aaff22;
+    color: #f1f1f1;
+  }
+
+  44% {
+    text-shadow: 3px 0 0 #ffaa22,
+      15px 2px 0 #aa22ff,
+      -7px -1.5px 0 #aaff22;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  45% {
+    text-shadow: 3px 0 0 #ffaa22,
+      15px 0 0 #aa22ff,
+      -7px 0 0 #aaff22;
+    color: #f1f1f1;
+  }
+
+
+  100% {
+    text-shadow: 0 0 0 #fff;
+  }
 }
