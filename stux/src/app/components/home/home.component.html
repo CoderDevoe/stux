@@ -10,7 +10,7 @@
     <!--     <a class="btn-floating btn-large red" (click)="openChat()">
       <i class="large material-icons">mode_edit</i>
     </a> -->
-    <div class="chat" [ngClass]="{'enter': showChatWindow}" *ngIf="showChatWindow">
+    <div class="chat" [ngClass]="{'enter': showChatWindow}" *ngIf="showChatWindow && captchaVerified">
       <div class="header">
         <span class="title">
           Do you need help?
@@ -40,7 +40,7 @@
           </div>
         </li>
  -->
-        <li class="other" [ngClass]="{'self': message.flag === 'received', 'other': message.flag === 'sent'}" *ngFor="let message of messages">{{message.message[0].message
+        <li class="other" [ngClass]="{'self': message.flag === 'received', 'other': message.flag === 'sent'}" *ngFor="let message of messages;">{{message.message[0].message
           }}
           <div>
             <img *ngIf="message.message[0].imageURL" [src]="message.message[0].imageURL">
@@ -49,6 +49,10 @@
             </ul>
           </div>
         </li>
+        <li class="self" *ngIf="isloading">
+          <div class="loading"><span></span></div>
+        </li>
+        <!-- <li id="end" class="self" style="visibility: hidden"></li> -->
       </ul>
       <div class="footer">
         <form [formGroup]="chatForm" class="form">
@@ -57,11 +61,43 @@
         </form>
       </div>
     </div>
+    <div class="captcha" *ngIf="!captchaVerified && showChatWindow">
+      <div class="header">
+        <span class="title">
+          Verify you are a human
+        </span>
+        <button (click)="closeChat($event)">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <form [formGroup]="captchaForm">
+        <ngx-recaptcha2 #captchaElem [siteKey]="captchaSiteKey" (reset)="handleReset()" (expire)="handleExpire()" (load)="handleLoad()" (success)="handleSuccess($event)" [useGlobalDomain]="false" [size]="'Normal'" [hl]="'en'" [theme]="'Light'" [type]="'Image'" formControlName="recaptcha">
+        </ngx-recaptcha2>
+      </form>
+    </div>
+    <div class="loader" *ngIf="captchaload && showChatWindow">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
   </div>
   <div class="content">
     <article>
       <img src="../../../assets/img/kuwall.jpg">
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <p>{{ aboutItems.length ? aboutItems[0].text : '' }}</p>
+    </article>
+    <article class="notice">
+      <h6>NOTICES</h6>
+      <ul class="noticeList">
+        <li class="noticeItem" *ngFor="let item of noticeItems">
+          <div>
+            <p>{{ item?.message }}<p>
+                <p><span>{{ item?.date }}</span></p>
+          </div>
+        </li>
+      </ul>
     </article>
   </div>
 </div>

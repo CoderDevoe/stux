@@ -5,13 +5,15 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, AboutComponent],
   imports: [
     CommonModule,
     ComponentsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ]
 })
 export class ComponentsModule {}

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  recaptcha_site_key: '6LfiFKMUAAAAAM3eyMzv93HF2AobUFLY1xRTennK',
+  recaptcha_secret_key: '6LfiFKMUAAAAANqdwoO-ME4FN0RQcvsqQfx6J7t7',
+  firebase: {
+    apiKey: 'AIzaSyCWbrBLw8UsxCRCXHceRzLZgEGnbFH-qMg',
+    // authDomain: 'cloud-firestore-test.firebaseapp.com',
+    databaseURL: 'https://stux-9dad2.firebaseio.com/',
+    projectId: 'stux-9dad2',
+    // storageBucket: 'cloud-firestore-test.appspot.com',
+    // messagingSenderId: 'ZZZZZZZZZZZZ'
+  }
 };
 
 /*
