@@ -2,12 +2,13 @@
   <div class="wrap">
     <div class="logo">
       <img src="../../../assets/img/kulogo.png">
-      <h2>ADMISSIONS</h2>
+      <h2 routerLink="/home">ADMISSIONS</h2>
     </div>
     <div class="buttons">
       <a class="main-paragraph hover_effect" href="https://github.com/CoderDevoe/stux" _target="blank">Github</a>
       <a class="main-paragraph hover_effect" href="https://github.com/CoderDevoe/stux" _target="blank">About</a>
-      <a class="main-paragraph hover_effect" href="https://www.kazirangauniversity.in/" _target="blank">KU page</a>
+      <a class="main-paragraph hover_effect" *ngIf="!isLoggedIn" routerLink="/admin">Admin</a>
+      <a class="main-paragraph hover_effect" *ngIf="isLoggedIn" (click)="logout()">Logout</a>
     </div>
   </div>
 </div>

@@ -101,7 +101,6 @@ export class HomeComponent implements OnInit {
       });
     this.about.subscribe(
       res => {
-        console.log(res);
         this.aboutItems = res;
       },
       err => {

@@ -1,0 +1,227 @@
+$scrollbar-width: 5px;
+
+@mixin fancy-scrollbar_notices() {
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: $scrollbar-width;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $scrollbar-width;
+    background-color: #FFFFFF;
+  }
+}
+
+@mixin fancy-background() {
+  background: -moz-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+  background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.outer {
+  display: flex;
+}
+
+.about {
+  h4 {
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  padding: 20px;
+
+  textarea {
+    height: 200px;
+    width: 700px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      width: 200px;
+      margin: auto;
+      margin-top: 4px;
+      cursor: pointer;
+      background: #2ecc71;
+      padding: 10px 15px;
+      border: 0;
+      color: #fff;
+      font-family: "Roboto";
+      font-size: 14px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-transition: 0.2s linear;
+      -moz-transition: 0.2s linear;
+      -ms-transition: 0.2s linear;
+      -o-transition: 0.2s linear;
+      transition: 0.2s linear;
+      z-index: 99999;
+
+      &:hover {
+        background: #27ae60;
+      }
+    }
+  }
+}
+
+/* table */
+
+
+.table {
+  height: 400px;
+  overflow-y: scroll;
+  @include fancy-scrollbar_notices;
+  margin: 70px;
+  margin-bottom: 4px;
+  color: #FFFFFF;
+}
+
+table {
+  text-align: left;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  // margin: 50px auto;
+  height: 300px;
+  border-radius: .25rem;
+}
+
+thead tr:first-child {
+  // background: #ed1c40;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 3px solid #ddd;
+}
+
+tbody {
+  overflow-y: scroll;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+
+.edit-notice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  color: #FFFFFF;
+
+  input {
+    color: #FFFFFF;
+  }
+
+  button {
+    margin-left: 4px;
+    margin-top: 4px;
+    cursor: pointer;
+    background: #2ecc71;
+    padding: 10px 15px;
+    border: 0;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+    z-index: 99999;
+
+    &:hover {
+      background: #27ae60;
+    }
+  }
+}
+
+
+.table-outer {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin: auto;
+    cursor: pointer;
+    background: #2ecc71;
+    padding: 10px 15px;
+    border: 0;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+    z-index: 99999;
+
+    &:hover {
+      background: #27ae60;
+    }
+
+  }
+}

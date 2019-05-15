@@ -1,0 +1,51 @@
+<div class="outer">
+  <div class="about">
+    <h4>About</h4>
+    <form [formGroup]="aboutForm">
+      <textarea formControlName="about">{{  aboutItems.length ? aboutItems[0].text : ''  }}</textarea>
+      <button (click)="updateAbout(aboutForm.value)">Save</button>
+    </form>
+  </div>
+  <div class="table-outer">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="4">Notices</th>
+          </tr>
+          <tr>
+            <th>#</th>
+            <th colspan="1">Message</th>
+            <th colspan="2">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notice of noticeItems;let i=index">
+            <td>{{ i }}</td>
+            <td>{{ notice.message }}</td>
+            <td>{{ notice.date }}</td>
+            <td>
+              <i class="material-icons button edit" (click)="initEdit(i, notice.message)">edit</i>
+              <i class="material-icons button delete" (click)="deleteNotice(i)">delete</i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="showAddWindow()">Add notice</button>
+  </div>
+  <div class="edit-notice" *ngIf="showEdit">
+    <form [formGroup]="editNotice">
+      <input type="text" formControlName="message" placeholder="Message" value="{{ editText }}">
+      <button (click)="updateNotice(editNotice.value)">Save</button>
+      <button (click)="closeEdit()">Close</button>
+    </form>
+  </div>
+  <div class="edit-notice" *ngIf="showAdd">
+    <form [formGroup]="addNotice">
+      <input type="text" formControlName="message" placeholder="Message">
+      <button (click)="addNotices(addNotice.value)">Save</button>
+      <button (click)="closeAdd()">Close</button>
+    </form>
+  </div>
+</div>

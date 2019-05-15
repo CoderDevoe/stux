@@ -6,9 +6,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
-  declarations: [HomeComponent, LoginComponent, AboutComponent],
+  declarations: [HomeComponent, LoginComponent, AboutComponent, AdminComponent],
   imports: [
     CommonModule,
     ComponentsRoutingModule,

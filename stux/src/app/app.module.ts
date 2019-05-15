@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from '../environments/environment';
 
 import { AmplifyAngularModule, AmplifyService, AmplifyModules } from 'aws-amplify-angular';
@@ -26,7 +27,8 @@ import Interactions from '@aws-amplify/interactions';
     FlexLayoutModule,
     AmplifyAngularModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [{
     provide: AmplifyService,

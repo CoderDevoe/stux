@@ -1,1 +1,253 @@
+@mixin fancy-background() {
+  background: -moz-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+  background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.outer {
+  font-family: "Roboto";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 400px;
+  z-index: 99999;
+}
+
+.form {
+
+  // @include fancy-background;
+  background: rgba(0, 0, 0, 0.5);
+  width: 285px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 40px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  z-index: 99999;
+
+  h2 {
+    margin: 0 0 20px;
+    line-height: 1;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    z-index: 99999;
+  }
+
+  P {
+    margin-bottom: 1px;
+    color: red;
+  }
+
+  input {
+    outline: none;
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    color: #ccc;
+    font-family: "Roboto";
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-wieght: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+    z-index: 99999;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 3pt 2pt rgba(#0EC879, 0.3);
+    }
+  }
+
+  button {
+    cursor: pointer;
+    background: #2ecc71;
+    width: 100%;
+    padding: 10px 15px;
+    border: 0;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+    z-index: 99999;
+
+    &:hover {
+      background: #27ae60;
+    }
+  }
+}
+
+
+/* loader */
+
+$squarew: 15px;
+$squareh: 15px;
+$squaremargin: 5px;
+$loaderw: $squarew * 3+$squaremargin *2;
+$loaderh: $squareh * 3+$squaremargin *2;
+$delayenter: 0.3s;
+$topenter: -10px;
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  transition: $value;
+}
+
+@mixin delay($delay) {
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+  animation-delay: $delay;
+}
+
+@-webkit-keyframes enter {
+  0% {
+    opacity: 0;
+    top: $topenter;
+  }
+
+  5% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  50.9% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  55.9% {
+    opacity: 0;
+    top: - $topenter;
+  }
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    top: $topenter;
+  }
+
+  5% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  50.9% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  55.9% {
+    opacity: 0;
+    top: - $topenter;
+  }
+}
+
+@-moz-keyframes enter {
+  0% {
+    opacity: 0;
+    top: $topenter;
+  }
+
+  5% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  50.9% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  55.9% {
+    opacity: 0;
+    top: - $topenter;
+  }
+}
+
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: - $loaderw / 2;
+  margin-top: - $loaderh / 2;
+}
+
+.square {
+  background: white;
+  width: $squarew;
+  height: $squareh;
+  float: left;
+  top: $topenter;
+  margin-right: $squaremargin;
+  margin-top: $squaremargin;
+  position: relative;
+  opacity: 0;
+  -webkit-animation: enter 6s infinite;
+  animation: enter 6s infinite;
+}
+
+.enter {
+  top: 0px;
+  opacity: 1;
+}
+
+.square:nth-child(1) {
+  @include delay(6 * $delayenter);
+}
+
+.square:nth-child(2) {
+  @include delay(7 * $delayenter);
+}
+
+.square:nth-child(3) {
+  @include delay(8 * $delayenter);
+  background: #fdc96f;
+}
+
+.square:nth-child(4) {
+  @include delay(3 * $delayenter);
+}
+
+.square:nth-child(5) {
+  @include delay(4 * $delayenter);
+}
+
+.square:nth-child(6) {
+  @include delay(5 * $delayenter);
+}
+
+.square:nth-child(7) {}
+
+.square:nth-child(8) {
+  @include delay(1 * $delayenter);
+}
+
+.square:nth-child(9) {
+  @include delay(2 * $delayenter);
+}
+
+.clear {
+  clear: both;
+}
+
+.last {
+  margin-right: 0;
+}
